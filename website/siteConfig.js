@@ -23,30 +23,19 @@ const users = [
 const siteConfig = {
   title: 'AquilaDB', // Title for your website.
   tagline: 'Inevitable muscle memory for your Machine Learning Applications',
-  url: 'https://your-docusaurus-test-site.com', // Your website URL
-  baseUrl: '/', // Base URL for your project */
-  // For github.io type URLs, you would set the url and baseUrl like:
-  //   url: 'https://facebook.github.io',
-  //   baseUrl: '/test-site/',
-
-  // Used for publishing and more
-  projectName: 'AquilaDB',
+  url: 'https://a-mma.github.io', // Your website URL
+  baseUrl: '/aquiladb-documentation/',
+  projectName: 'aquiladb-documentation',
   organizationName: 'a-mma',
-  // For top-level user or org sites, the organization is still the same.
-  // e.g., for the https://JoelMarcey.github.io site, it would be set like...
-  //   organizationName: 'JoelMarcey'
-
   // For no header links in the top nav bar -> headerLinks: [],
   headerLinks: [
+    { languages: false },
     { doc: 'introduction', label: 'Docs' },
     { doc: 'api-reference', label: 'API' },
     { page: 'help', label: 'Help' },
     { href: 'https:/medium.com/a-mma', label: 'Blog' },
     { href: 'https://github.com/a-mma/AquilaDB', label: 'GitHub' }
   ],
-
-  // If you have users set above, you add it here:
-  users,
 
   /* path to images for header/footer */
   headerIcon: 'img/favicon_io/favicon.ico',
@@ -56,7 +45,7 @@ const siteConfig = {
   /* Colors for website */
   colors: {
     primaryColor: '#0D47A1',
-    secondaryColor: '#412658'
+    secondaryColor: '#f016e1'
   },
 
   /* Custom fonts for website */
@@ -94,7 +83,7 @@ const siteConfig = {
   ],
 
   stylesheets: [
-    'https://fonts.googleapis.com/css?family=|Roboto&display=swap'
+    'https://fonts.googleapis.com/css?family=Roboto&display=swap'
   ],
 
   // On page navigation for the current documentation page.
@@ -118,8 +107,9 @@ const siteConfig = {
 
   // You may provide arbitrary config keys to be used as needed by your
   // template. For example, if you need your repo's URL...
-  repoUrl: 'https://github.com/a-mma/AquilaDB'
+  repoUrl: 'https://github.com/a-mma/AquilaDB',
   //editUrl: 'https://github.com/a-mma/AquilaDB/wiki/'
+  language:''
 };
 
 module.exports = siteConfig;

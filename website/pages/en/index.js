@@ -157,7 +157,7 @@ class Index extends React.Component {
             title: 'Redis of Machine Learning'
           },
           {
-            content: `Setup and start prototyping your idea in minutes and scale at you pace.
+            content: `Setup and start prototyping your idea in minutes and scale at your own pace.
                In many cases, all you need is AquilaDB and pre-trained ML model`,
             image: `${baseUrl}img/socket.svg`,
             imageAlign: 'top',
@@ -165,7 +165,7 @@ class Index extends React.Component {
           },
           {
             content:
-              'Be in your existing environment and continue working with you environment. Be in your existing environment and continue working with you environment',
+              'Drop in addition to your existing programming system. Be in your existing environment and continue working with you environment',
             image: `${baseUrl}img/browser.svg`,
             imageAlign: 'top',
             title: 'Language'
