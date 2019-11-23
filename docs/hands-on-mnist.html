@@ -1,0 +1,241 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>AquilaDB hands on with MNIST dataset · AquilaDB</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="_**Download Jupyter notebook [here](https://github.com/a-mma/AquilaDB-Examples/tree/master/MNIST_example)**_"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="AquilaDB hands on with MNIST dataset · AquilaDB"/><meta property="og:type" content="website"/><meta property="og:url" content="https://a-mma.github.io/aquiladb-documentation/"/><meta property="og:description" content="_**Download Jupyter notebook [here](https://github.com/a-mma/AquilaDB-Examples/tree/master/MNIST_example)**_"/><meta property="og:image" content="https://a-mma.github.io/aquiladb-documentation/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://a-mma.github.io/aquiladb-documentation/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/aquiladb-documentation/img/favicon_io/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto&amp;display=swap"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js" async=""></script><script src="/aquiladb-documentation/js/scrollSpy.js"></script><link rel="stylesheet" href="/aquiladb-documentation/css/main.css"/><script src="/aquiladb-documentation/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/aquiladb-documentation/"><img class="logo" src="/aquiladb-documentation/img/favicon_io/favicon.ico" alt="AquilaDB"/><h2 class="headerTitleWithLogo">AquilaDB</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a target="_self"></a></li><li class="siteNavGroupActive"><a href="/aquiladb-documentation/docs/introduction" target="_self">Docs</a></li><li class=""><a href="/aquiladb-documentation/docs/api-reference" target="_self">API</a></li><li class=""><a href="/aquiladb-documentation/help" target="_self">Help</a></li><li class=""><a href="https:/medium.com/a-mma" target="_self">Blog</a></li><li class=""><a href="https://github.com/a-mma/AquilaDB" target="_self">GitHub</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Tutorials</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Introduction</h3><ul class=""><li class="navListItem"><a class="navItem" href="/aquiladb-documentation/docs/introduction">Introduction</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">How-To Guides</h3><ul class=""><li class="navListItem"><a class="navItem" href="/aquiladb-documentation/docs/install-aquiladb">Install AquilaDB</a></li><li class="navListItem"><a class="navItem" href="/aquiladb-documentation/docs/modify-default-configuration">Modify Default Configuration</a></li><li class="navListItem"><a class="navItem" href="/aquiladb-documentation/docs/run-aquiladb">Run AquilaDB</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Tutorials</h3><ul class=""><li class="navListItem"><a class="navItem" href="/aquiladb-documentation/docs/get-started">Get Started</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/aquiladb-documentation/docs/hands-on-mnist">AquilaDB hands on with MNIST dataset</a></li><li class="navListItem"><a class="navItem" href="/aquiladb-documentation/docs/semantic-text-retrieval">Search text by its meaning</a></li><li class="navListItem"><a class="navItem" href="/aquiladb-documentation/docs/reverse-image-search">Build a toy Google reverse image search</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Core Concepts</h3><ul class=""><li class="navListItem"><a class="navItem" href="/aquiladb-documentation/docs/neural-information-retrieval">Neural Information retrieval</a></li><li class="navListItem"><a class="navItem" href="/aquiladb-documentation/docs/aquiladb-architecture">AquilaDB Architecture</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">AquilaDB hands on with MNIST dataset</h1></header><article><div><span><p><em><strong>Download Jupyter notebook <a href="https://github.com/a-mma/AquilaDB-Examples/tree/master/MNIST_example">here</a></strong></em></p>
+<p>To get started, you need docker installed already in your system and run <a href="https://hub.docker.com/r/ammaorg/aquiladb">ammaorg/aquiladb</a> docker container. <a href="https://github.com/a-mma/AquilaDB#usage">Here</a> are the setup instructions.</p>
+<h3><a class="anchor" aria-hidden="true" id="setup-grpc-helper-functions"></a><a href="#setup-grpc-helper-functions" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>setup GRPC helper functions</h3>
+<h4><a class="anchor" aria-hidden="true" id="install-grpc"></a><a href="#install-grpc" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>install grpc</h4>
+<p>Execute below commands in your terminal to make <code>GRPC</code> available in your system. We will be using <code>GRPC</code> for communication with the AquilaDB container.</p>
+<p>!pip install grpcio</p>
+<p>!pip install protobuf</p>
+<h4><a class="anchor" aria-hidden="true" id="import-grpc-proto-etc"></a><a href="#import-grpc-proto-etc" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Import grpc, proto etc</h4>
+<p>You need to copy <code>vecdb_pb2.py</code> and <code>vecdb_pb2_grpc.py</code> files from <code>&lt;AquilaDb source directory&gt;/src/test</code> to the working directory to make sure below imports will work.</p>
+<pre><code class="hljs css language-python"><span class="hljs-keyword">from</span> __future__ <span class="hljs-keyword">import</span> print_function
+
+<span class="hljs-keyword">import</span> grpc
+
+<span class="hljs-keyword">import</span> vecdb_pb2
+<span class="hljs-keyword">import</span> vecdb_pb2_grpc
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="create-client-connection"></a><a href="#create-client-connection" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>create client connection</h4>
+<p>Now, let's create a <code>GRPC</code> channel between AquilaDB docker container and this notebook.</p>
+<pre><code class="hljs css language-python">channel = grpc.insecure_channel(<span class="hljs-string">'localhost:50051'</span>)
+stub = vecdb_pb2_grpc.VecdbServiceStub(channel)
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="create-helper-functions"></a><a href="#create-helper-functions" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>create helper functions</h4>
+<p>Below are some helper functions that we will be using in this tutorial to interact with AquilaDB APIs. You don't need to worry about these now. We are planning to release client libraries for Node JS and Python ASAP, which will make your life easier.</p>
+<pre><code class="hljs css language-python"><span class="hljs-comment"># API interface to add documents to AquilaDB</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">addDocuments</span> <span class="hljs-params">(documents_in)</span>:</span>
+    response = stub.addDocuments(vecdb_pb2.addDocRequest(documents=documents_in))
+    <span class="hljs-keyword">return</span> response
+</code></pre>
+<pre><code class="hljs css language-python"><span class="hljs-keyword">import</span> base64
+<span class="hljs-keyword">import</span> json
+
+<span class="hljs-comment"># helper function to convert native data to API friendly data</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">convertDocuments</span><span class="hljs-params">(vector, document)</span>:</span>
+    <span class="hljs-keyword">return</span> {
+            <span class="hljs-string">"vector"</span>: {
+                <span class="hljs-string">"e"</span>: vector
+            },
+            <span class="hljs-string">"b64data"</span>: json.dumps(document, separators=(<span class="hljs-string">','</span>, <span class="hljs-string">':'</span>)).encode(<span class="hljs-string">'utf-8'</span>)
+        }
+</code></pre>
+<pre><code class="hljs css language-python"><span class="hljs-comment"># API interface to get nearest documents from AquilaDB</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">getNearest</span> <span class="hljs-params">(matrix_in, k_in)</span>:</span>
+    response = stub.getNearest(vecdb_pb2.getNearestRequest(matrix=matrix_in, k=k_in))
+    <span class="hljs-keyword">return</span> response
+</code></pre>
+<pre><code class="hljs css language-python"><span class="hljs-comment"># helper function to convert native data to API friendly data</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">convertMatrix</span><span class="hljs-params">(vector)</span>:</span>
+    <span class="hljs-keyword">return</span> [{
+            <span class="hljs-string">"e"</span>: vector
+    }]
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="load-mnist-data"></a><a href="#load-mnist-data" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Load MNIST data</h3>
+<p>Now let's load MNIST data.</p>
+<pre><code class="hljs css language-python"><span class="hljs-comment"># Helper function to load MNIST data from disk</span>
+<span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np 
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">load_data</span><span class="hljs-params">(path)</span>:</span>
+    <span class="hljs-keyword">with</span> np.load(path) <span class="hljs-keyword">as</span> f:
+        x_train, y_train = f[<span class="hljs-string">'x_train'</span>], f[<span class="hljs-string">'y_train'</span>]
+        x_test, y_test = f[<span class="hljs-string">'x_test'</span>], f[<span class="hljs-string">'y_test'</span>]
+        <span class="hljs-keyword">return</span> (x_train, y_train), (x_test, y_test)
+</code></pre>
+<h5><a class="anchor" aria-hidden="true" id="get-mnist-dataset"></a><a href="#get-mnist-dataset" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Get MNIST dataset</h5>
+<p>Make sure that, you have downloaded Numpy friendly dump of MNIST dataset from <a href="https://www.kaggle.com/vikramtiwari/mnist-numpy">here at Kaggle</a></p>
+<pre><code class="hljs css language-python"><span class="hljs-comment"># specify the location of downloaded dataset</span>
+<span class="hljs-comment"># load data into x_train and y_train as image, label respectively.</span>
+
+(x_train, y_train), (x_test, y_test) = load_data(<span class="hljs-string">'./mnist.npz'</span>)
+</code></pre>
+<pre><code class="hljs css language-python"><span class="hljs-comment"># Let's see if everything is properly loaded</span>
+
+print(x_train.shape)
+print(y_train.shape)
+print(x_train[<span class="hljs-number">0</span>].flatten().shape)
+</code></pre>
+<pre><code class="hljs">(60000, 28, 28)
+(60000,)
+(784,)
+</code></pre>
+<h5><a class="anchor" aria-hidden="true" id="see-contents"></a><a href="#see-contents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>see contents</h5>
+<p>We use matplotlib to plot our images. Let's see if we can plot one from our dataset.</p>
+<pre><code class="hljs css language-python"><span class="hljs-keyword">from</span> matplotlib <span class="hljs-keyword">import</span> pyplot <span class="hljs-keyword">as</span> plt
+
+<span class="hljs-comment"># we're going to plot 15th image from our dataset</span>
+index = <span class="hljs-number">15</span>
+
+pixels = np.array(x_train[index], dtype=<span class="hljs-string">'uint8'</span>)
+label = y_train[index]
+plt.title(<span class="hljs-string">'Label is {label}'</span>.format(label=label))
+plt.imshow(pixels, cmap=<span class="hljs-string">'gray'</span>)
+plt.show()
+</code></pre>
+<p><img src="https://user-images.githubusercontent.com/19545678/60756239-e00b3180-a018-11e9-8962-a5a45deef216.png" alt="png"></p>
+<h4><a class="anchor" aria-hidden="true" id="send-documents"></a><a href="#send-documents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Send documents</h4>
+<p>Everything is setup. Now it's time to work with AquilaDB and see what it can do.</p>
+<p>Let's send some documents to DB. Actually, 10201 documents, each containing a single image from MNIST dataset, along with some metadata information. We send image label as metadata information for now, you can send anything that you want to store.</p>
+<p>Also note that - by default, you need to send documents not less than 10,000. It is the least number of documents you must keep inside the DB before doing anything else. If you don't have this much data and you don't want to work with this much data, we're sorry, this is not the right place for you..</p>
+<p>You can configure the database to meet your requirements by balancing <code>speed vs accuracy vs data size</code>. We will discuss that in another tutorial.</p>
+<pre><code class="hljs css language-python"><span class="hljs-keyword">import</span> time 
+
+<span class="hljs-comment"># to keep the generated documents to be sent to DB</span>
+docs_gen = []
+<span class="hljs-comment"># based on your system's processing power, you can choose a decent value for batch size.</span>
+<span class="hljs-comment"># Our program will send `batch size` documents to DB and wait 1 second before sending another.</span>
+<span class="hljs-comment"># this is not to blow up CPU and memory while you send large amount of data to DB</span>
+<span class="hljs-comment"># you might ask, if this a `problem` that I need to wait until DB digest each chunk properly and is a waste of time?</span>
+<span class="hljs-comment"># It is not. We will discuss where AquilaDB filts well and how P2P replication handles this smoothly.</span>
+<span class="hljs-comment"># We will also discuss the best practices and see why this is not a big deal in production </span>
+<span class="hljs-comment"># in another tutorial or blog posts.</span>
+batch_len = <span class="hljs-number">200</span>
+
+<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range (<span class="hljs-number">0</span>, <span class="hljs-number">10201</span>):
+    vector = x_train[i].flatten().tolist()
+    label = y_train[i].item()
+    docs_gen.append(convertDocuments(vector, {<span class="hljs-string">"label"</span>:label}))
+    
+    <span class="hljs-comment"># send batch_len batches</span>
+    <span class="hljs-keyword">if</span> i%batch_len == <span class="hljs-number">0</span>:
+        <span class="hljs-comment"># add documents to AquilaDB</span>
+        response = addDocuments(docs_gen)
+        print(<span class="hljs-string">"index: "</span>+str(i), <span class="hljs-string">"inserted: "</span>+str(len(response._id)))
+        docs_gen = []
+        time.sleep(<span class="hljs-number">1</span>)
+</code></pre>
+<pre><code class="hljs">index: 0 inserted: 1
+index: 200 inserted: 200
+index: 400 inserted: 200
+.....
+.....
+index: 10000 inserted: 200
+index: 10200 inserted: 200
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="find-nearest-neighbour"></a><a href="#find-nearest-neighbour" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>find nearest neighbour</h4>
+<p>Hopefully, you were able to insert images into DB. Now let's query the DB. We will give it an image and will expect the DB to return similar looking images back.</p>
+<h5><a class="anchor" aria-hidden="true" id="search-nearest-neighbours"></a><a href="#search-nearest-neighbours" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Search nearest neighbours</h5>
+<pre><code class="hljs css language-python"><span class="hljs-comment"># how many similar images we want in return </span>
+k_in = <span class="hljs-number">5</span>
+
+<span class="hljs-comment"># what is our example image from the dataset?</span>
+index = <span class="hljs-number">40000</span>
+
+<span class="hljs-comment"># flatten the input image</span>
+vector_to_convert = x_train[index].flatten().tolist()
+label_to_convert = y_train[index]
+
+<span class="hljs-comment"># display query image</span>
+pixels = x_train[index]
+plt.title(<span class="hljs-string">'Label is {label}'</span>.format(label=label_to_convert))
+plt.imshow(pixels, cmap=<span class="hljs-string">'gray'</span>)
+plt.show()
+
+<span class="hljs-comment"># search for nearest results</span>
+converted_vector = convertMatrix(vector_to_convert)
+nearest_docs_result = getNearest(converted_vector, k_in)
+nearest_docs_result = json.loads(nearest_docs_result.documents)
+</code></pre>
+<p><img src="https://user-images.githubusercontent.com/19545678/60756243-e4cfe580-a018-11e9-87a4-6eba716437c8.png" alt="png"></p>
+<pre><code class="hljs css language-python"><span class="hljs-comment"># See if the labels are the same</span>
+<span class="hljs-keyword">for</span> doc <span class="hljs-keyword">in</span> nearest_docs_result:
+    <span class="hljs-comment"># ids are printed to make sure that the resulting documents are different</span>
+    print(doc[<span class="hljs-string">"id"</span>], doc[<span class="hljs-string">"doc"</span>][<span class="hljs-string">"label"</span>])
+</code></pre>
+<pre><code class="hljs">47522d089f986f4571faaa2782ff59e7 7
+ef24c3659e1c6faa66b8a9b029327d48 7
+e574ccd989fc0d533e5c694e21916284 7
+d094352a6c22702ad681396bb0be33b9 7
+6e2d8145854453cee0d340ee237381dc 7
+</code></pre>
+<pre><code class="hljs css language-python"><span class="hljs-comment"># see if the images are correct</span>
+<span class="hljs-keyword">for</span> doc <span class="hljs-keyword">in</span> nearest_docs_result:
+    image_ = doc[<span class="hljs-string">"doc"</span>][<span class="hljs-string">"vector"</span>]
+    label_ = doc[<span class="hljs-string">"doc"</span>][<span class="hljs-string">"label"</span>]
+    <span class="hljs-comment"># draw image</span>
+    label = label_
+    pixels = np.resize(np.array(image_),(<span class="hljs-number">28</span>,<span class="hljs-number">28</span>))
+    plt.title(<span class="hljs-string">'Label is {label}'</span>.format(label=label))
+    plt.imshow(pixels, cmap=<span class="hljs-string">'gray'</span>)
+    plt.show()
+</code></pre>
+<p><img src="https://user-images.githubusercontent.com/19545678/60756244-e699a900-a018-11e9-9f07-6abe22752845.png" alt="png"></p>
+<p><img src="https://user-images.githubusercontent.com/19545678/60756248-e7cad600-a018-11e9-86ee-4cd91bbe4f1a.png" alt="png"></p>
+<p><img src="https://user-images.githubusercontent.com/19545678/60756249-e8fc0300-a018-11e9-8930-0e944416bbcb.png" alt="png"></p>
+<p><img src="https://user-images.githubusercontent.com/19545678/60756250-ea2d3000-a018-11e9-8450-ea1543beeabb.png" alt="png"></p>
+<p><img src="https://user-images.githubusercontent.com/19545678/60756251-eac5c680-a018-11e9-90c3-4d0104cc47c2.png" alt="png"></p>
+<p>That's all for this tutorial. Thanks, happy hacking..!</p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/aquiladb-documentation/docs/get-started"><span class="arrow-prev">← </span><span>Get Started</span></a><a class="docs-next button" href="/aquiladb-documentation/docs/semantic-text-retrieval"><span>Search text by its meaning</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><div><h5>Docs</h5><a href="/aquiladb-documentation/docs/en/introduction">Getting Started</a><a href="/aquiladb-documentation/docs/en/get-started">Tutorials</a><a href="/aquiladb-documentation/docs/en/api-reference">API Reference</a></div><div><h5>Community</h5><a href="https://discord.gg/5YP7zHS">Project Chat</a></div><div><h5>More</h5><a href="https:/medium.com/a-mma">Blog</a><a href="https://github.com/a-mma/AquilaDB">GitHub</a><a class="github-button" href="https://github.com/a-mma/AquilaDB" data-icon="octicon-star" data-count-href="/AquilaDB/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://github.com/a-mma/AquilaDB" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/aquiladb-documentation/img/amma.png" alt="a-mma" width="100" height="45"/></a><section class="copyright">Copyright © 2019 a-mma</section></footer></div></body></html>
