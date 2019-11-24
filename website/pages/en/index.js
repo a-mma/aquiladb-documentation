@@ -61,7 +61,7 @@ class HomeSplash extends React.Component {
         <div className="inner">
           <ProjectTitle siteConfig={siteConfig} />
           <PromoSection>
-            <Button href="#try">Try It Out</Button>
+            <Button href="/docs/install-aquiladb">Get started</Button>
             <Button href="http://www.youtube.com/watch?v=-VYpjpLXU5Q">
               Media
             </Button>
@@ -105,10 +105,7 @@ class Index extends React.Component {
         <Block id="try">
           {[
             {
-              content:
-                'To make your landing page more attractive, use illustrations! Check out ' +
-                '[**unDraw**](https://undraw.co/) which provides you with customizable illustrations which are free to use. ' +
-                'The illustrations you see on this page are from unDraw.',
+              content:'',
               image: `${baseUrl}img/undraw_code_review.svg`,
               imageAlign: 'left',
               title: 'Get Started'
@@ -215,7 +212,6 @@ class Index extends React.Component {
         <div className="mainContainer">
           <Features />
           <Description />
-          <TryOut/>
         </div>
       </div>
     );
