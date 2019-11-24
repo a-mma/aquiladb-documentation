@@ -27,6 +27,7 @@ const siteConfig = {
   baseUrl: '/',
   projectName: 'aquiladb-documentation',
   organizationName: 'a-mma',
+  cname: 'aquiladb.xyz',
   // For no header links in the top nav bar -> headerLinks: [],
   headerLinks: [
     { languages: false },

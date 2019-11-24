@@ -13,7 +13,7 @@ class Footer extends React.Component {
     const docsUrl = this.props.config.docsUrl;
     const docsPart = `${docsUrl ? `${docsUrl}/` : ''}`;
     const langPart = `${language ? `${language}/` : ''}`;
-    return `${baseUrl}${docsPart}${langPart}${doc}`;
+    return `${baseUrl}${docsPart}${doc}`;
   }
 
   pageUrl(doc, language) {
@@ -68,8 +68,8 @@ class Footer extends React.Component {
           </div>
           <div>
             <h5>More</h5>
-            <a href="https:/medium.com/a-mma">Blog</a>
-            <a href="https://github.com/a-mma/AquilaDB">GitHub</a>
+            <a href="https://medium.com/a-mma" target="_blank">Blog</a>
+            <a href="https://github.com/a-mma/AquilaDB" target="_blank">GitHub</a>
             <a
               className="github-button"
               href={this.props.config.repoUrl}
@@ -80,7 +80,7 @@ class Footer extends React.Component {
               aria-label="Star this project on GitHub">
               Star
             </a>
-            {this.props.config.twitterUsername && (
+            {/* {this.props.config.twitterUsername && (
               <div className="social">
                 <a
                   href={`https://twitter.com/${this.props.config.twitterUsername}`}
@@ -101,7 +101,7 @@ class Footer extends React.Component {
                   data-show-faces="false"
                 />
               </div>
-            )}
+            )} */}
           </div>
         </section>
 
