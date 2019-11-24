@@ -10,7 +10,7 @@ Below is the benchmarks done for AquilaDB
 * 4 GB RAM
 * 128 GB of flash storage
 
-### Constraints
+### Environment constraints
 * Network communication between AquilaDB and Node JS client is done within localhost
 * Input vector size is limited to the minimum - 8 Dimension vector
 * A single document is sent to DB on each communication
