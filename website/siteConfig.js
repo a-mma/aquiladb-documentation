@@ -23,8 +23,8 @@ const users = [
 const siteConfig = {
   title: 'AquilaDB', // Title for your website.
   tagline: 'Inevitable muscle memory for your Machine Learning Applications',
-  url: 'https://a-mma.github.io', // Your website URL
-  baseUrl: '/aquiladb-documentation/',
+  url: 'https://aquiladb.xyz', // Your website URL
+  baseUrl: '/',
   projectName: 'aquiladb-documentation',
   organizationName: 'a-mma',
   // For no header links in the top nav bar -> headerLinks: [],
@@ -33,7 +33,7 @@ const siteConfig = {
     { doc: 'introduction', label: 'Docs' },
     { doc: 'api-reference', label: 'API' },
     { page: 'help', label: 'Help' },
-    { href: 'https:/medium.com/a-mma', label: 'Blog' },
+    { href: 'https://medium.com/a-mma', label: 'Blog' },
     { href: 'https://github.com/a-mma/AquilaDB', label: 'GitHub' }
   ],
 
