@@ -27,14 +27,6 @@ body {
   width: 100%;
 }
 
-.fixedHeaderContainer {
-  background-image: linear-gradient(to bottom right, #f016e1, #0D47A1, cyan)!important;
-}
-
-.navigationSlider .slidingNav ul li > a:hover {
-  background-image: linear-gradient(to bottom right, #f016e1, #0D47A1)!important;
-}
-
 .mainContainer {
   padding-bottom: 0;
 }
