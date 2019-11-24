@@ -18,6 +18,16 @@
 body {
   font-family: 'Roboto', sans-serif;
 }
+
 .wrapper {
   max-width: 100%;
 }
+
+.logo {
+  width: 100%;
+}
+
+.mainContainer {
+  padding-bottom: 0;
+}
+

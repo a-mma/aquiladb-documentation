@@ -27,6 +27,7 @@ const siteConfig = {
   baseUrl: '/',
   projectName: 'aquiladb-documentation',
   organizationName: 'a-mma',
+  cname: 'aquiladb.xyz',
   // For no header links in the top nav bar -> headerLinks: [],
   headerLinks: [
     { languages: false },
@@ -108,7 +109,7 @@ const siteConfig = {
   // You may provide arbitrary config keys to be used as needed by your
   // template. For example, if you need your repo's URL...
   repoUrl: 'https://github.com/a-mma/AquilaDB',
-  //editUrl: 'https://github.com/a-mma/AquilaDB/wiki/'
+  editUrl: 'https://github.com/a-mma/aquiladb-documentation/tree/master/docs/',
   language:''
 };
 
