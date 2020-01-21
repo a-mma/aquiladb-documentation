@@ -110,7 +110,9 @@ const siteConfig = {
   // template. For example, if you need your repo's URL...
   repoUrl: 'https://github.com/a-mma/AquilaDB',
   editUrl: 'https://github.com/a-mma/aquiladb-documentation/tree/master/docs/',
-  language:''
+  language:'',
+  gaTrackingId: `${process.env.GA_TRACKING_ID}`,
+  gaGtag: true
 };
 
 module.exports = siteConfig;
