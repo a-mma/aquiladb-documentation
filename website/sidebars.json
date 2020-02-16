@@ -4,7 +4,8 @@
     "How-To Guides": [
       "install-aquiladb",
       "modify-default-configuration",
-      "run-aquiladb"
+      "run-aquiladb",
+      "replication"
     ],
     "Tutorials": ["get-started", "hands-on-mnist","semantic-text-retrieval","reverse-image-search" ],
     "Core Concepts": ["neural-information-retrieval", "aquiladb-architecture"],
