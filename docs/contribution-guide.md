@@ -9,7 +9,8 @@ Hey there, what's your ***superpower***?
 Welcome to the contributor section. Each of us is here to help fellow citizens of Aquila who need immediate assistance in their daily life. We're very excited to have you here and appreciate the decision you've made for the community. We've put a lot of effort to help you identify your superpowers and onboard you real quick. 
 <p align="center">Just look below to see what <b>Starlegion</b> you belong and </p>
 <p align="center"><b>jump right in</b>.</p>
-<br/>
+
+<p align="center"><img width="200px" src="https://www.publicdomainpictures.net/pictures/180000/velka/mutant-superhero-10.jpg" /></p>
 
 ## The BugHunter - do you like to test and push AquilaDB to its limits?
 
