@@ -1,10 +1,9 @@
 ---
 id: contribution-guide
-title: Start your contribution journey
+title: Start your superhuman journey right here
 sidebar_label: How to contribute
 ---
 
-## Start your superhuman journey right here
 Hey there, what's your ***superpower***?
 
 Welcome to the contributor section. Each of us is here to help fellow citizens of Aquila who need immediate assistance in their daily life. We're very excited to have you here and appreciate the decision you've made for the community. We've put a lot of effort to help you identify your superpowers and onboard you real quick. 
