@@ -51,9 +51,13 @@ Welcome to the contributor section. Each of us is here to help fellow citizens o
 * Meet students, mentor them and run hackathons.
 * If you like to educate and inspire people, do public speaking and let them explore what AquilaDB can do in the long run.
 * We don't want to limit our thoughts to AqulaDB's capabilities. Let the Machine learning and Decentralization discussions go on. Help others to find the right conferences in Machine Learning and Decentralization.
+* Let us know about them at [Discord community](https://discordapp.com/invite/5YP7zHS) or [contact@aquiladb.xyz](email:contact@aquiladb.xyz)
 
 ## The OBoxMind - got a use case bulb burning in your head?
-* Talk about it, let everyone hear it. Write about it, we will read it. Going to build a prototype? Whoa, let us help you... Reach the right people at [Discord community](https://discordapp.com/invite/5YP7zHS) or [contact@aquiladb.xyz](email:contact@aquiladb.xyz)
+* Talk about it, let everyone hear it. 
+* Write about it, we will read it. 
+* Going to build a prototype? Whoa, let us help you... 
+* Reach the right people at [Discord community](https://discordapp.com/invite/5YP7zHS) or [contact@aquiladb.xyz](email:contact@aquiladb.xyz)
 
 ## The Scientist - brainstorming and research your thing?
 * Check out [new feature requests](https://github.com/a-mma/AquilaDB/issues?q=is%3Aissue+is%3Aopen+label%3Aenhancement) and find the best algorithms to solve it.
