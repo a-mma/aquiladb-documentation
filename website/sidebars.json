@@ -10,6 +10,7 @@
     "Tutorials": ["get-started", "hands-on-mnist","semantic-text-retrieval","reverse-image-search" ],
     "Core Concepts": ["neural-information-retrieval", "aquiladb-architecture"],
     "Reference":["api-reference", "adb-benchmarks"],
+    "Contribute":["contribution-guide"],
     "Support": [],
     "Metadata": []
   },
