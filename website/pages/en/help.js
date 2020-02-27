@@ -27,7 +27,7 @@ function Help(props) {
       title: 'Browse Docs',
     },
     {
-      content: 'Ask questions about the documentation and project in <a href="https://aquiladb-slack-invite-app.herokuapp.com/" target="_blank">Discord</a>',
+      content: 'Ask questions about the documentation and project in <a href="https://aquiladb-slack-invite-app.herokuapp.com/" target="_blank">Slack</a>',
       title: 'Join us on slack',
     },
     {
