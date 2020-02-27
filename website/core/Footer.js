@@ -58,7 +58,7 @@ class Footer extends React.Component {
               rel="noreferrer noopener">
               Stack Overflow
             </a> */}
-            <a href="https://discord.gg/5YP7zHS">Project Chat</a>
+            <a href="https://aquiladb-slack-invite-app.herokuapp.com/">Join us on Slack</a>
             {/* <a
               href="https://twitter.com/"
               target="_blank"
